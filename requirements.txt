@@ -10,11 +10,9 @@ automat==0.6.0            # via twisted
 cffi==1.10.0              # via cryptography
 constantly==15.1.0        # via twisted
 cryptography==2.0.3       # via pyopenssl, secretstorage
-dbus-python==1.2.4
 enum34==1.1.6             # via cryptography
 google-api-python-client==1.6.2
 httplib2==0.10.3          # via google-api-python-client, oauth2client
-hyperlink==17.3.0         # via twisted
 idna==2.5                 # via cryptography
 incremental==17.5.0       # via twisted
 ipaddress==1.0.18         # via cryptography
@@ -25,10 +23,10 @@ pyasn1==0.3.2             # via oauth2client, pyasn1-modules, rsa, service-ident
 pycparser==2.18           # via cffi
 pyopenssl==17.2.0
 rsa==3.4.2                # via oauth2client
-secretstorage==2.3.1
+secretstorage==2.3.1      # via keyring
 service-identity==17.0.0
 six==1.10.0               # via automat, cryptography, google-api-python-client, oauth2client, pyopenssl
-twisted==17.5.0
+twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 zope.interface==4.4.2     # via twisted
 

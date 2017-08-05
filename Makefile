@@ -45,6 +45,7 @@ FIND_LINKS:=-f virtualenv_support
 
 update-requirements: $(REQUIREMENTS_FILES)
 	python setup.py pip_sync $(FIND_LINKS) $(PIP_NO_INDEX) -r requirements-dev.txt
+	. bin/activate && pip install -e . --no-deps -f virtualenv_support
 
 requirements.txt: $(REQUIREMENTS_IN)
 	python setup.py pip_compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ -c "$^"

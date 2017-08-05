@@ -100,7 +100,7 @@ setup_info = {
     'author': 'mete0r',
     'author_email': 'mete0r@sarangbang.or.kr',
     'license': 'GNU Affero General Public License v3 or later (AGPLv3+)',
-    # 'url': 'https://github.com/mete0r/mete0r.xoauth2relay',
+    'url': 'https://github.com/mete0r/xoauth2relay',
 
     'packages': [
         'mete0r_xoauth2relay',
@@ -138,7 +138,8 @@ setup_info = {
     },
     'entry_points': {
         'console_scripts': [
-            'mete0r.xoauth2relay = mete0r_xoauth2relay.cli:main',
+            'xoauth2relay-init = mete0r_xoauth2relay.cli:init',
+            'xoauth2relay-login = mete0r_xoauth2relay.cli:login',
         ],
         'zc.buildout': [
             'default = mete0r_xoauth2relay.recipe:Recipe',

@@ -20,7 +20,10 @@ from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import unicode_literals
 from argparse import ArgumentParser
+from datetime import datetime
 import gettext
+import io
+import json
 import logging
 import os.path
 import sys
@@ -44,17 +47,130 @@ else:
     _ = t.ugettext
 
 
-def main():
+def init():
     gettext.gettext = t.gettext
-    parser = main_argparse()
+    parser = init_argparse()
     if argcomplete:
         argcomplete.autocomplete(parser)
     args = parser.parse_args()
     configureLogging(args.verbose)
-    logger.info('args: %s', args)
+    logger.debug('args: %s', args)
+
+    app_name = 'xoauth2relay'
+
+    from keyring import get_keyring
+    keyring = get_keyring()
+
+    from .oauth2 import ClientSecretsStore
+    clientsecrets_store = ClientSecretsStore(keyring)
+    try:
+        client_type, client_info = clientsecrets_store.load(
+            app_name,
+        )
+    except KeyError:
+        pass
+    else:
+        if not args.force:
+            logger.warning('clientsecrets already exists; ignoring')
+            return
+
+    try:
+        with io.open(args.clientsecrets, 'rb') as fp:
+            clientsecrets = fp.read()
+            json.loads(clientsecrets)
+    except IOError as e:
+        logger.error(e)
+        raise SystemExit(1)
+    clientsecrets_store.save(app_name, clientsecrets)
+    logger.info('clientsecrets saved.')
+    if args.delete:
+        os.unlink(args.clientsecrets)
+        logger.info('deleted: %s', args.clientsecrets)
 
 
-def main_argparse():
+def init_argparse():
+    parser = ArgumentParser()
+    parser.add_argument(
+        '--version',
+        action='version',
+        version='%(prog)s {}'.format(__version__),
+        help=_('output version information and exit')
+    )
+    parser.add_argument(
+        '-v', '--verbose',
+        action='count',
+        help=_('increase verbosity')
+    )
+    parser.add_argument(
+        'clientsecrets',
+        help=_('Google API Project Client Secrets file'),
+    )
+    parser.add_argument(
+        '--force',
+        action='store_true',
+        help=_('Overwrite existing client secrets.'),
+    )
+    parser.add_argument(
+        '--delete',
+        action='store_true',
+        help=_('Delete imported client secrets file.'),
+    )
+    return parser
+
+
+def login():
+    gettext.gettext = t.gettext
+    parser = login_argparse()
+    if argcomplete:
+        argcomplete.autocomplete(parser)
+    args = parser.parse_args()
+    configureLogging(args.verbose)
+    logger.debug('args: %s', args)
+
+    from keyring import get_keyring
+    from httplib2 import Http
+    from .oauth2 import CredentialsStore
+    from .oauth2 import ClientSecretsStore
+    from .oauth2 import OAuth2Authenticator
+
+    app_name = 'xoauth2relay'
+    email = args.email
+
+    keyring = get_keyring()
+    credentials_store = CredentialsStore(keyring, app_name)
+    credentials = credentials_store.load(email)
+    if credentials is not None and not args.force_authenticate:
+        if credentials.token_expiry < datetime.utcnow():
+            logger.info('OAuth2 token has been expired.')
+            http = Http()
+            credentials.refresh(http)
+            credentials_store.save(email, credentials)
+            logger.info('OAuth2 token has been refreshed.')
+        else:
+            logger.info('OAuth2 token already exists.')
+        return
+
+    clientsecrets_store = ClientSecretsStore(keyring)
+    try:
+        client_type, client_info = clientsecrets_store.load(
+            app_name,
+        )
+    except KeyError:
+        logger.error('clientsecrets not found')
+        raise SystemExit(1)
+
+    oauth2authenticator = OAuth2Authenticator(
+        client_type, client_info,
+    )
+    scope = 'https://mail.google.com'
+    credentials = oauth2authenticator.authenticate(
+        email, scope,
+    )
+    credentials_store.save(email, credentials)
+    logger.info('OAuth2 token saved.')
+
+
+def login_argparse():
     parser = ArgumentParser()
     parser.add_argument('--version',
                         action='version',
@@ -63,16 +179,25 @@ def main_argparse():
     parser.add_argument('-v', '--verbose',
                         action='count',
                         help=_('increase verbosity'))
+    parser.add_argument(
+        'email',
+        help=_('GMail login email'),
+    )
+    parser.add_argument(
+        '--force-authenticate',
+        action='store_true',
+        help=_('Force authentication'),
+    )
     return parser
 
 
 def configureLogging(verbosity):
     if verbosity == 1:
-        level = logging.INFO
+        level = logging.DEBUG
     elif verbosity > 1:
         level = logging.DEBUG
     else:
-        level = logging.WARNING
+        level = logging.INFO
     try:
         import coloredlogs
     except ImportError:

@@ -1,7 +1,5 @@
-dbus-python
 google-api-python-client
 keyring
 pyopenssl
-secretstorage
 service_identity
-twisted
+twisted != 17.5.0

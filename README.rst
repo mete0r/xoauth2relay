@@ -1,18 +1,31 @@
 mete0r.xoauth2relay
-==============
+===================
 
 SMTP XOAUTH2 Relay
 
 
-Production environment
-----------------------
+Usage
+-----
 
-To setup production environment::
+Make a Google API Project and import clientsecrets.json file::
 
-   python bootstrap-virtualenv.py
+   xoauth2relay-init clientsecrets.json
 
-Maintenance note: you should populate virtualenv_support/ with wheels for
-production environment, i.e. packages specified in requirements.txt
+Then login::
+
+   xoauth2relay-login foo@gmail.com
+
+You can login another account::
+
+   xoauth2relay-login bar@gmail.com
+
+Run the application::
+
+   twistd -n -y xoauth2relay.tac
+
+Now you can test it with a SMTP client::
+
+   telnet localhost 2500
 
 
 Development environment

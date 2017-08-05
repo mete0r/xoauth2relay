@@ -30,7 +30,6 @@ google-api-python-client==1.6.2
 html5lib==0.9999999       # via bleach
 httplib2==0.10.3          # via google-api-python-client, oauth2client
 humanfriendly==2.4        # via coloredlogs
-hyperlink==17.3.0         # via twisted
 idna==2.5                 # via cryptography
 imagesize==0.7.1          # via sphinx
 incremental==17.5.0       # via twisted
@@ -69,7 +68,7 @@ sphinx-intl==0.9.9
 sphinx==1.5.3
 tox==2.6.0
 twine==1.8.1              # via zest.releaser
-twisted==17.5.0
+twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 virtualenv==15.1.0        # via tox
 wheel==0.29.0
@@ -78,6 +77,3 @@ zest.releaser==6.9
 zope.exceptions==4.0.8    # via zope.testrunner
 zope.interface==4.1.1     # via repoze.sphinx.autointerface, twisted, zope.exceptions, zope.testrunner
 zope.testrunner==4.6.0
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools                # via pyroma, repoze.sphinx.autointerface, sphinx-intl, twine, zc.buildout, zest.releaser, zope.exceptions, zope.interface, zope.testrunner
