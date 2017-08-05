@@ -1,10 +1,10 @@
 Command-line interface
 ======================
 
-METE0R-PROJECT
+mete0r.xoauth2relay
 --------------
 
 .. argparse::
-   :module: METE0R_PACKAGE.cli
+   :module: mete0r_xoauth2relay.cli
    :func: main_argparse
-   :prog: METE0R-PROJECT
+   :prog: mete0r.xoauth2relay

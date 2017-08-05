@@ -1,7 +1,7 @@
-METE0R-PROJECT
+mete0r.xoauth2relay
 ==============
 
-SOME_DESCRIPTION
+SMTP XOAUTH2 Relay
 
 
 Production environment

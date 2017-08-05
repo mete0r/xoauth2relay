@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#   METE0R-PROJECT: SOME_DESCRIPTION
+#   mete0r.xoauth2relay: SMTP XOAUTH2 Relay
 #   Copyright (C) 2015-2017 mete0r <mete0r@sarangbang.or.kr>
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -19,22 +19,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import unicode_literals
-from functools import wraps
-import os.path
-import shutil
+import logging
 
 
-def isolated_directory(test_fn):
-    @wraps(test_fn)
-    def wrapper(self):
-        name = self.id()
-        cwd = os.getcwd()
-        if os.path.exists(name):
-            shutil.rmtree(name)
-        os.makedirs(name)
-        os.chdir(name)
-        try:
-            test_fn(self)
-        finally:
-            os.chdir(cwd)
-    return wrapper
+logger = logging.getLogger(__name__)

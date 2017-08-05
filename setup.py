@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#   METE0R-PROJECT: SOME_DESCRIPTION
+#   mete0r.xoauth2relay: SMTP XOAUTH2 Relay
 #   Copyright (C) 2015-2017 mete0r <mete0r@sarangbang.or.kr>
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -67,7 +67,7 @@ def readfile(path):
 
 @setup_dir
 def get_version():
-    from METE0R_PACKAGE import __version__
+    from mete0r_xoauth2relay import __version__
     return __version__
 
 
@@ -91,33 +91,33 @@ tests_require = readfile('requirements-test.in')
 
 
 setup_info = {
-    'name': 'METE0R-PROJECT',
+    'name': 'mete0r.xoauth2relay',
     'version': get_version(),
-    'description': 'SOME_DESCRIPTION',
+    'description': 'SMTP XOAUTH2 Relay',
     'long_description': '\n'.join([readfile('README.rst'),
                                    readfile('CHANGES.rst')]),
 
     'author': 'mete0r',
     'author_email': 'mete0r@sarangbang.or.kr',
     'license': 'GNU Affero General Public License v3 or later (AGPLv3+)',
-    # 'url': 'https://github.com/mete0r/METE0R-PROJECT',
+    # 'url': 'https://github.com/mete0r/mete0r.xoauth2relay',
 
     'packages': [
-        'METE0R_PACKAGE',
-        'METE0R_PACKAGE.recipe',
-        'METE0R_PACKAGE.tests',
-        'METE0R_PACKAGE.tests.fixtures',
-        'METE0R_PACKAGE.tests.layers',
+        'mete0r_xoauth2relay',
+        'mete0r_xoauth2relay.recipe',
+        'mete0r_xoauth2relay.tests',
+        'mete0r_xoauth2relay.tests.fixtures',
+        'mete0r_xoauth2relay.tests.layers',
     ],
     # do not use '.'; just omit to specify setup.py directory
     'package_dir': {
         # '': 'src',
     },
     'package_data': {
-        'METE0R_PACKAGE': [
+        'mete0r_xoauth2relay': [
             'locale/*/*/*.mo',
         ],
-        # 'METE0R_PACKAGE.tests': [
+        # 'mete0r_xoauth2relay.tests': [
         #   'files/*',
         # ],
     },
@@ -132,22 +132,22 @@ setup_info = {
         'mete0r.distutils.virtualenv == 0.0.2',
     ],
     'message_extractors': {
-        'METE0R_PACKAGE': [
+        'mete0r_xoauth2relay': [
             ('**.py', 'python', None),
         ]
     },
     'entry_points': {
         'console_scripts': [
-            'METE0R-PROJECT = METE0R_PACKAGE.cli:main',
+            'mete0r.xoauth2relay = mete0r_xoauth2relay.cli:main',
         ],
         'zc.buildout': [
-            'default = METE0R_PACKAGE.recipe:Recipe',
+            'default = mete0r_xoauth2relay.recipe:Recipe',
         ],
         'zc.buildout.uninstall': [
-            'default = METE0R_PACKAGE.recipe:uninstall',
+            'default = mete0r_xoauth2relay.recipe:uninstall',
         ],
         'paste.app_factory': [
-            'main = METE0R_PACKAGE.wsgi:app_factory',
+            'main = mete0r_xoauth2relay.wsgi:app_factory',
         ],
     },
     'classifiers': [

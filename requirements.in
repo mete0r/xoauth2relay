@@ -1,0 +1,7 @@
+dbus-python
+google-api-python-client
+keyring
+pyopenssl
+secretstorage
+service_identity
+twisted

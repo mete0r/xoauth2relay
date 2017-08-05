@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#   METE0R-PROJECT: SOME_DESCRIPTION
+#   mete0r.xoauth2relay: SMTP XOAUTH2 Relay
 #   Copyright (C) 2015-2017 mete0r <mete0r@sarangbang.or.kr>
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,25 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 from __future__ import absolute_import
+from __future__ import print_function
 from __future__ import unicode_literals
+from unittest import TestCase
+import logging
+import io
 
 
-__version__ = '0.0.0'
+from .utils import isolated_directory
+
+
+class AppTest(TestCase):
+
+    @property
+    def logger(self):
+        name = self.id()
+        return logging.getLogger(name)
+
+    @isolated_directory
+    def test_nothing(self):
+        self.logger.debug('test!')
+        with io.open('foo.txt', 'wb'):
+            pass
