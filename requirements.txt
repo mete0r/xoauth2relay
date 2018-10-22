@@ -9,7 +9,7 @@ attrs==17.2.0             # via automat, service-identity
 automat==0.6.0            # via twisted
 cffi==1.10.0              # via cryptography
 constantly==15.1.0        # via twisted
-cryptography==2.0.3       # via pyopenssl, secretstorage
+cryptography==2.3.1       # via pyopenssl, secretstorage
 enum34==1.1.6             # via cryptography
 google-api-python-client==1.6.2
 httplib2==0.10.3          # via google-api-python-client, oauth2client
@@ -21,7 +21,7 @@ oauth2client==4.1.2       # via google-api-python-client
 pyasn1-modules==0.0.11    # via oauth2client, service-identity
 pyasn1==0.3.2             # via oauth2client, pyasn1-modules, rsa, service-identity
 pycparser==2.18           # via cffi
-pyopenssl==17.2.0
+pyopenssl==18.0.0
 rsa==3.4.2                # via oauth2client
 secretstorage==2.3.1      # via keyring
 service-identity==17.0.0
