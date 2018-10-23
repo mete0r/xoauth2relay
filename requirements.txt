@@ -29,6 +29,3 @@ six==1.10.0               # via automat, cryptography, google-api-python-client,
 twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 zope.interface==4.4.2     # via twisted
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools                # via zope.interface

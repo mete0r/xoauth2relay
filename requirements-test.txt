@@ -31,6 +31,3 @@ uritemplate==3.0.0        # via google-api-python-client
 zope.exceptions==4.0.8    # via zope.testrunner
 zope.interface==4.1.1     # via twisted, zope.exceptions, zope.testrunner
 zope.testrunner==4.6.0
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools                # via zope.exceptions, zope.interface, zope.testrunner

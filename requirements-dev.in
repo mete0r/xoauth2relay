@@ -3,13 +3,13 @@ argcomplete
 babel
 check-manifest
 coloredlogs
-dbus-python
+dbus-python >= 1.2.8
 flake8
 pip-tools >= 3.1.0
 pyroma
 repoze.sphinx.autointerface
 restview
-secretstorage
+secretstorage < 3
 sphinx >= 1.5
 sphinx-argparse
 sphinx-intl

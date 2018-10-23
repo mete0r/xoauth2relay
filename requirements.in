@@ -1,5 +1,5 @@
 google-api-python-client
-keyring
+keyring >= 10.4.0
 pyopenssl >= 17.5.0
 service_identity
 twisted != 17.5.0
