@@ -21,7 +21,7 @@ You can login another account::
 
 Run the application::
 
-   twistd -n -y xoauth2relay.tac
+   xoauth2relay-serve -vvv
 
 Now you can test it with a SMTP client::
 

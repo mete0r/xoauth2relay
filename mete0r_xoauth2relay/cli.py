@@ -35,6 +35,7 @@ except ImportError:
     argcomplete = None
 
 from . import __version__
+from .twistedapp import make_application
 
 PY3 = sys.version_info.major == 3
 logger = logging.getLogger(__name__)
@@ -187,6 +188,73 @@ def login_argparse():
         '--force-authenticate',
         action='store_true',
         help=_('Force authentication'),
+    )
+    return parser
+
+
+def serve():
+    gettext.gettext = t.gettext
+    parser = serve_argparse()
+    if argcomplete:
+        argcomplete.autocomplete(parser)
+    args = parser.parse_args()
+    configureLogging(args.verbose)
+    logger.debug('args: %s', args)
+
+    from twisted.internet import reactor
+    from twisted.application.service import IService
+    application = make_application(
+            remoteHost='smtp.gmail.com',
+            remotePort=587,
+            listenPort=int(args.port),
+            bindAddress=args.bind,
+    )
+
+    def onStartUp():
+        logger.info('Starting service')
+        IService(application).startService()
+
+    def onShutdown():
+        logger.info('Stopping service')
+        IService(application).stopService()
+
+    reactor.addSystemEventTrigger(
+        'before',
+        'startup',
+        onStartUp,
+    )
+
+
+    reactor.addSystemEventTrigger(
+        'before',
+        'shutdown',
+        onShutdown,
+    )
+
+
+    reactor.run()
+
+
+def serve_argparse():
+    parser = ArgumentParser()
+    parser.add_argument('--version',
+                        action='version',
+                        version='%(prog)s {}'.format(__version__),
+                        help=_('output version information and exit'))
+    parser.add_argument('-v', '--verbose',
+                        action='count',
+                        help=_('increase verbosity'))
+    parser.add_argument(
+        '--bind',
+        action='store',
+        default='127.0.0.1',
+        help=_('Local binding address'),
+    )
+    parser.add_argument(
+        '--port',
+        action='store',
+        default='2500',
+        help=_('Local listening port'),
     )
     return parser
 

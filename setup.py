@@ -140,6 +140,7 @@ setup_info = {
         'console_scripts': [
             'xoauth2relay-init = mete0r_xoauth2relay.cli:init',
             'xoauth2relay-login = mete0r_xoauth2relay.cli:login',
+            'xoauth2relay-serve = mete0r_xoauth2relay.cli:serve',
         ],
         'zc.buildout': [
             'default = mete0r_xoauth2relay.recipe:Recipe',
