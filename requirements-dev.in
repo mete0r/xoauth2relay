@@ -5,7 +5,7 @@ check-manifest
 coloredlogs
 dbus-python
 flake8
-pip-tools >= 1.7.0
+pip-tools >= 3.1.0
 pyroma
 repoze.sphinx.autointerface
 restview
@@ -15,5 +15,5 @@ sphinx-argparse
 sphinx-intl
 tox
 wheel
-zc.buildout
+zc.buildout >= 2.12.2
 zest.releaser

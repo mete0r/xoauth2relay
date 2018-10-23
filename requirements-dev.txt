@@ -24,7 +24,6 @@ cryptography==2.3.1       # via pyopenssl, secretstorage
 dbus-python==1.2.4
 docutils==0.13.1          # via pyroma, readme-renderer, restview, sphinx
 enum34==1.1.6             # via cryptography, flake8
-first==2.0.1              # via pip-tools
 flake8==3.3.0
 google-api-python-client==1.6.2
 html5lib==0.9999999       # via bleach
@@ -40,7 +39,7 @@ markupsafe==0.23          # via jinja2
 mccabe==0.6.1             # via flake8
 monotonic==1.2            # via humanfriendly
 oauth2client==4.1.2       # via google-api-python-client
-pip-tools==1.8.0
+pip-tools==3.1.0
 pkginfo==1.4.1            # via twine
 pluggy==0.4.0             # via tox
 py==1.4.32                # via tox
@@ -72,11 +71,8 @@ twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 virtualenv==15.1.0        # via tox
 wheel==0.29.0
-zc.buildout==2.8.0
+zc.buildout==2.12.2
 zest.releaser==6.9
 zope.exceptions==4.0.8    # via zope.testrunner
 zope.interface==4.1.1     # via repoze.sphinx.autointerface, twisted, zope.exceptions, zope.testrunner
 zope.testrunner==4.6.0
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools                # via pyroma, repoze.sphinx.autointerface, sphinx-intl, twine, zc.buildout, zest.releaser, zope.exceptions, zope.interface, zope.testrunner
