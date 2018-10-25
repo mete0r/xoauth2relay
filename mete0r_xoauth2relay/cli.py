@@ -18,8 +18,6 @@
 #
 from __future__ import absolute_import
 from __future__ import print_function
-from __future__ import unicode_literals
-from argparse import ArgumentParser
 from datetime import datetime
 import gettext
 import io
@@ -28,13 +26,8 @@ import logging
 import os.path
 import sys
 
-# PYTHON_ARGCOMPLETE_OK
-try:
-    import argcomplete
-except ImportError:
-    argcomplete = None
+import click
 
-from . import __version__
 from .twistedapp import make_application
 
 PY3 = sys.version_info.major == 3
@@ -46,17 +39,50 @@ if PY3:
     _ = t.gettext
 else:
     _ = t.ugettext
+gettext.gettext = t.gettext
 
 
-def init():
-    gettext.gettext = t.gettext
-    parser = init_argparse()
-    if argcomplete:
-        argcomplete.autocomplete(parser)
-    args = parser.parse_args()
-    configureLogging(args.verbose)
-    logger.debug('args: %s', args)
+@click.group(
+    help=_(
+        '''
+        SMTP XOAUTH2 Relay.
+        '''
+    ),
+)
+@click.option(
+    '-v',
+    '--verbose',
+    count=True,
+    help=_('Increase verbosity.'),
+)
+def main(verbose):
+    configureLogging(verbose)
 
+
+@main.command(
+    help=_(
+        '''
+        Initialize with Google API Project Client Secrets file.
+        '''
+    ),
+)
+@click.option(
+    '--force',
+    is_flag=True,
+    default=False,
+    help=_('Overwrite existing client secrets.')
+)
+@click.option(
+    '--delete',
+    is_flag=True,
+    default=False,
+    help=_('Delete imported client secrets file.')
+)
+@click.argument(
+    'clientsecrets',
+    #    help=_('Google API Project Client Secrets file')
+)
+def init(force, delete, clientsecrets):
     app_name = 'xoauth2relay'
 
     from keyring import get_keyring
@@ -71,12 +97,12 @@ def init():
     except KeyError:
         pass
     else:
-        if not args.force:
+        if not force:
             logger.warning('clientsecrets already exists; ignoring')
             return
 
     try:
-        with io.open(args.clientsecrets, 'rb') as fp:
+        with io.open(clientsecrets, 'rb') as fp:
             clientsecrets = fp.read()
             json.loads(clientsecrets)
     except IOError as e:
@@ -84,50 +110,29 @@ def init():
         raise SystemExit(1)
     clientsecrets_store.save(app_name, clientsecrets)
     logger.info('clientsecrets saved.')
-    if args.delete:
-        os.unlink(args.clientsecrets)
-        logger.info('deleted: %s', args.clientsecrets)
+    if delete:
+        os.unlink(clientsecrets)
+        logger.info('deleted: %s', clientsecrets)
 
 
-def init_argparse():
-    parser = ArgumentParser()
-    parser.add_argument(
-        '--version',
-        action='version',
-        version='%(prog)s {}'.format(__version__),
-        help=_('output version information and exit')
-    )
-    parser.add_argument(
-        '-v', '--verbose',
-        action='count',
-        help=_('increase verbosity')
-    )
-    parser.add_argument(
-        'clientsecrets',
-        help=_('Google API Project Client Secrets file'),
-    )
-    parser.add_argument(
-        '--force',
-        action='store_true',
-        help=_('Overwrite existing client secrets.'),
-    )
-    parser.add_argument(
-        '--delete',
-        action='store_true',
-        help=_('Delete imported client secrets file.'),
-    )
-    return parser
-
-
-def login():
-    gettext.gettext = t.gettext
-    parser = login_argparse()
-    if argcomplete:
-        argcomplete.autocomplete(parser)
-    args = parser.parse_args()
-    configureLogging(args.verbose)
-    logger.debug('args: %s', args)
-
+@main.command(
+    help=_(
+        '''
+        Login to GMail and save credentials.
+        '''
+    ),
+)
+@click.option(
+    '--force-authenticate',
+    is_flag=True,
+    default=False,
+    help=_('Force authentication')
+)
+@click.argument(
+    'email',
+    #    help=_('GMail login email')
+)
+def login(force_authenticate, email):
     from keyring import get_keyring
     from httplib2 import Http
     from .oauth2 import CredentialsStore
@@ -135,12 +140,11 @@ def login():
     from .oauth2 import OAuth2Authenticator
 
     app_name = 'xoauth2relay'
-    email = args.email
 
     keyring = get_keyring()
     credentials_store = CredentialsStore(keyring, app_name)
     credentials = credentials_store.load(email)
-    if credentials is not None and not args.force_authenticate:
+    if credentials is not None and not force_authenticate:
         if credentials.token_expiry < datetime.utcnow():
             logger.info('OAuth2 token has been expired.')
             http = Http()
@@ -171,43 +175,27 @@ def login():
     logger.info('OAuth2 token saved.')
 
 
-def login_argparse():
-    parser = ArgumentParser()
-    parser.add_argument('--version',
-                        action='version',
-                        version='%(prog)s {}'.format(__version__),
-                        help=_('output version information and exit'))
-    parser.add_argument('-v', '--verbose',
-                        action='count',
-                        help=_('increase verbosity'))
-    parser.add_argument(
-        'email',
-        help=_('GMail login email'),
-    )
-    parser.add_argument(
-        '--force-authenticate',
-        action='store_true',
-        help=_('Force authentication'),
-    )
-    return parser
-
-
-def serve():
-    gettext.gettext = t.gettext
-    parser = serve_argparse()
-    if argcomplete:
-        argcomplete.autocomplete(parser)
-    args = parser.parse_args()
-    configureLogging(args.verbose)
-    logger.debug('args: %s', args)
-
+@main.command(
+    help=_('Run server.'),
+)
+@click.option(
+    '--bind',
+    default='127.0.0.1',
+    help=_('Local binding address'),
+)
+@click.option(
+    '--port',
+    default='2500',
+    help=_('Local listening port'),
+)
+def serve(bind, port):
     from twisted.internet import reactor
     from twisted.application.service import IService
     application = make_application(
             remoteHost='smtp.gmail.com',
             remotePort=587,
-            listenPort=int(args.port),
-            bindAddress=args.bind,
+            listenPort=int(port),
+            bindAddress=bind,
     )
 
     def onStartUp():
@@ -224,39 +212,13 @@ def serve():
         onStartUp,
     )
 
-
     reactor.addSystemEventTrigger(
         'before',
         'shutdown',
         onShutdown,
     )
 
-
     reactor.run()
-
-
-def serve_argparse():
-    parser = ArgumentParser()
-    parser.add_argument('--version',
-                        action='version',
-                        version='%(prog)s {}'.format(__version__),
-                        help=_('output version information and exit'))
-    parser.add_argument('-v', '--verbose',
-                        action='count',
-                        help=_('increase verbosity'))
-    parser.add_argument(
-        '--bind',
-        action='store',
-        default='127.0.0.1',
-        help=_('Local binding address'),
-    )
-    parser.add_argument(
-        '--port',
-        action='store',
-        default='2500',
-        help=_('Local listening port'),
-    )
-    return parser
 
 
 def configureLogging(verbosity):

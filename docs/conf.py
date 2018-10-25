@@ -36,7 +36,7 @@ needs_sphinx = '1.5'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'sphinxarg.ext',
+    'sphinx_click.ext',
     'repoze.sphinx.autointerface',
 ]
 

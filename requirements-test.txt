@@ -8,6 +8,7 @@ asn1crypto==0.22.0        # via cryptography
 attrs==17.2.0             # via automat, service-identity
 automat==0.6.0            # via twisted
 cffi==1.10.0              # via cryptography
+click==7.0
 constantly==15.1.0        # via twisted
 cryptography==2.3.1       # via pyopenssl, secretstorage
 enum34==1.1.6             # via cryptography

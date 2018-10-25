@@ -11,7 +11,7 @@ repoze.sphinx.autointerface
 restview >= 2.9.1
 secretstorage < 3
 sphinx >= 1.5
-sphinx-argparse >= 0.2.3
+sphinx-click >= 1.4.0
 sphinx-intl >= 0.9.11
 tox >= 3.5.2
 wheel >= 0.32.2

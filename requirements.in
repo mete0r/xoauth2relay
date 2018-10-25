@@ -1,3 +1,4 @@
+click >= 3.0
 google-api-python-client
 keyring >= 10.4.0
 pyopenssl >= 17.5.0

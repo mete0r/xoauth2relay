@@ -8,52 +8,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mete0r.xoauth2relay 0.0.0\n"
 "Report-Msgid-Bugs-To: mete0r@sarangbang.or.kr\n"
-"POT-Creation-Date: 2018-10-25 16:45+0900\n"
+"POT-Creation-Date: 2018-10-25 19:01+0900\n"
 "PO-Revision-Date: 2016-02-27 19:35+0900\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: mete0r <mete0r@sarangbang.or.kr>\n"
 "Language: ko\n"
 "Language-Team: ko <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.6.0\n"
 
-#: mete0r_xoauth2relay/cli.py:98 mete0r_xoauth2relay/cli.py:179
-#: mete0r_xoauth2relay/cli.py:243
-msgid "output version information and exit"
-msgstr "버전 정보를 출력하고 끝냅니다"
+#: mete0r_xoauth2relay/cli.py:46
+msgid ""
+"\n"
+"        SMTP XOAUTH2 Relay.\n"
+"        "
+msgstr ""
+"\n"
+"        SMTP XOAUTH2 릴레이.\n"
+"        "
 
-#: mete0r_xoauth2relay/cli.py:103 mete0r_xoauth2relay/cli.py:182
-#: mete0r_xoauth2relay/cli.py:246
-msgid "increase verbosity"
-msgstr "로그 출력 수준을 높입니다"
+#: mete0r_xoauth2relay/cli.py:56
+msgid "Increase verbosity."
+msgstr "로그 출력 수준을 높입니다."
 
-#: mete0r_xoauth2relay/cli.py:107
-msgid "Google API Project Client Secrets file"
-msgstr "구글 API 프로젝트 클라이언트 비밀 파일"
+#: mete0r_xoauth2relay/cli.py:63
+msgid ""
+"\n"
+"        Initialize with Google API Project Client Secrets file.\n"
+"        "
+msgstr ""
+"\n"
+"        구글 API 프로젝트 클라이언트 비밀 파일로 초기화합니다.\n"
+"        "
 
-#: mete0r_xoauth2relay/cli.py:112
+#: mete0r_xoauth2relay/cli.py:73
 msgid "Overwrite existing client secrets."
 msgstr "기존 클라이언트 비밀을 덮어씁니다."
 
-#: mete0r_xoauth2relay/cli.py:117
+#: mete0r_xoauth2relay/cli.py:79
 msgid "Delete imported client secrets file."
 msgstr "수입된 클라이언트 비밀 파일을 삭제합니다."
 
-#: mete0r_xoauth2relay/cli.py:185
-msgid "GMail login email"
-msgstr "GMail 로그인 이메일"
+#: mete0r_xoauth2relay/cli.py:119
+msgid ""
+"\n"
+"        Login to GMail and save credentials.\n"
+"        "
+msgstr ""
+"\n"
+"        GMail에 로그인하고 인증 토큰을 저장합니다.\n"
+"        "
 
-#: mete0r_xoauth2relay/cli.py:190
+#: mete0r_xoauth2relay/cli.py:129
 msgid "Force authentication"
 msgstr "인증을 강제합니다."
 
-#: mete0r_xoauth2relay/cli.py:251
+#: mete0r_xoauth2relay/cli.py:179
+msgid "Run server."
+msgstr "서버를 실행합니다."
+
+#: mete0r_xoauth2relay/cli.py:184
 msgid "Local binding address"
 msgstr "로컬 바인딩 주소"
 
-#: mete0r_xoauth2relay/cli.py:257
+#: mete0r_xoauth2relay/cli.py:189
 msgid "Local listening port"
 msgstr "로컬 리스닝 포트"
 

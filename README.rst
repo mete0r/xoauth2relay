@@ -9,19 +9,19 @@ Usage
 
 Make a Google API Project and import clientsecrets.json file::
 
-   xoauth2relay-init clientsecrets.json
+   xoauth2relay init clientsecrets.json
 
 Then login::
 
-   xoauth2relay-login foo@gmail.com
+   xoauth2relay login foo@gmail.com
 
 You can login another account::
 
-   xoauth2relay-login bar@gmail.com
+   xoauth2relay login bar@gmail.com
 
 Run the application::
 
-   xoauth2relay-serve -vvv
+   xoauth2relay -vvv serve
 
 Now you can test it with a SMTP client::
 

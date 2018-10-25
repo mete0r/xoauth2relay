@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mete0r.xoauth2relay 0.0.0\n"
 "Report-Msgid-Bugs-To: mete0r@sarangbang.or.kr\n"
-"POT-Creation-Date: 2018-10-25 16:45+0900\n"
+"POT-Creation-Date: 2018-10-25 19:01+0900\n"
 "PO-Revision-Date: 2016-02-27 19:35+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,43 +17,54 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.6.0\n"
 
-#: mete0r_xoauth2relay/cli.py:98 mete0r_xoauth2relay/cli.py:179
-#: mete0r_xoauth2relay/cli.py:243
-msgid "output version information and exit"
+#: mete0r_xoauth2relay/cli.py:46
+msgid ""
+"\n"
+"        SMTP XOAUTH2 Relay.\n"
+"        "
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:103 mete0r_xoauth2relay/cli.py:182
-#: mete0r_xoauth2relay/cli.py:246
-msgid "increase verbosity"
+#: mete0r_xoauth2relay/cli.py:56
+msgid "Increase verbosity."
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:107
-msgid "Google API Project Client Secrets file"
+#: mete0r_xoauth2relay/cli.py:63
+msgid ""
+"\n"
+"        Initialize with Google API Project Client Secrets file.\n"
+"        "
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:112
+#: mete0r_xoauth2relay/cli.py:73
 msgid "Overwrite existing client secrets."
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:117
+#: mete0r_xoauth2relay/cli.py:79
 msgid "Delete imported client secrets file."
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:185
-msgid "GMail login email"
+#: mete0r_xoauth2relay/cli.py:119
+msgid ""
+"\n"
+"        Login to GMail and save credentials.\n"
+"        "
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:190
+#: mete0r_xoauth2relay/cli.py:129
 msgid "Force authentication"
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:251
+#: mete0r_xoauth2relay/cli.py:179
+msgid "Run server."
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:184
 msgid "Local binding address"
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:257
+#: mete0r_xoauth2relay/cli.py:189
 msgid "Local listening port"
 msgstr ""
 

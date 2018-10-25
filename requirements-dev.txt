@@ -14,7 +14,7 @@ babel==2.6.0
 bleach==1.5.0             # via readme-renderer
 cffi==1.10.0              # via cryptography
 check-manifest==0.37
-click==6.7                # via pip-tools, sphinx-intl
+click==6.7
 clint==0.5.1              # via twine
 colorama==0.3.7           # via zest.releaser
 coloredlogs==10.0
@@ -40,6 +40,7 @@ markupsafe==0.23          # via jinja2
 mccabe==0.6.1             # via flake8
 monotonic==1.2            # via humanfriendly
 oauth2client==4.1.2       # via google-api-python-client
+pbr==5.1.0                # via sphinx-click
 pip-tools==3.1.0
 pkginfo==1.4.1            # via twine
 pluggy==0.4.0             # via tox
@@ -63,7 +64,7 @@ secretstorage==2.3.1
 service-identity==17.0.0
 six==1.10.0               # via automat, bleach, cryptography, google-api-python-client, html5lib, oauth2client, pip-tools, pyopenssl, readme-renderer, sphinx, sphinx-intl, tox, zest.releaser, zope.testrunner
 snowballstemmer==1.2.1    # via sphinx
-sphinx-argparse==0.2.3
+sphinx-click==1.4.0
 sphinx-intl==0.9.11
 sphinx==1.5.3
 toml==0.10.0              # via tox
