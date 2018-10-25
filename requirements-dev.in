@@ -1,19 +1,19 @@
 alabaster >= 0.7.10
-argcomplete
-babel
-check-manifest
-coloredlogs
+argcomplete >= 1.9.4
+babel >= 2.6.0
+check-manifest >= 0.37
+coloredlogs >= 10.0
 dbus-python >= 1.2.8
-flake8
+flake8 >= 3.6.0
 pip-tools >= 3.1.0
-pyroma
+pyroma >= 2.4
 repoze.sphinx.autointerface
-restview
+restview >= 2.9.1
 secretstorage < 3
 sphinx >= 1.5
-sphinx-argparse
-sphinx-intl
-tox
-wheel
+sphinx-argparse >= 0.2.3
+sphinx-intl >= 0.9.11
+tox >= 3.5.2
+wheel >= 0.32.2
 zc.buildout >= 2.12.2
-zest.releaser
+zest.releaser >= 6.15.2

@@ -5,30 +5,31 @@
 #    pip-compile --output-file requirements-dev.txt requirements-dev.in requirements-test.in requirements.in
 #
 alabaster==0.7.10
-argcomplete==1.8.2
+argcomplete==1.9.4
 args==0.1.0               # via clint
 asn1crypto==0.22.0        # via cryptography
 attrs==17.2.0             # via automat, service-identity
 automat==0.6.0            # via twisted
-babel==2.3.4
+babel==2.6.0
 bleach==1.5.0             # via readme-renderer
 cffi==1.10.0              # via cryptography
-check-manifest==0.35
+check-manifest==0.37
 click==6.7                # via pip-tools, sphinx-intl
 clint==0.5.1              # via twine
 colorama==0.3.7           # via zest.releaser
-coloredlogs==5.2
+coloredlogs==10.0
 configparser==3.5.0       # via flake8
 constantly==15.1.0        # via twisted
 cryptography==2.3.1       # via pyopenssl, secretstorage
 dbus-python==1.2.8
 docutils==0.13.1          # via pyroma, readme-renderer, restview, sphinx
 enum34==1.1.6             # via cryptography, flake8
-flake8==3.3.0
+filelock==3.0.9           # via tox
+flake8==3.6.0
 google-api-python-client==1.6.2
 html5lib==0.9999999       # via bleach
 httplib2==0.10.3          # via google-api-python-client, oauth2client
-humanfriendly==2.4        # via coloredlogs
+humanfriendly==4.17       # via coloredlogs
 idna==2.5                 # via cryptography
 imagesize==0.7.1          # via sphinx
 incremental==17.5.0       # via twisted
@@ -45,34 +46,35 @@ pluggy==0.4.0             # via tox
 py==1.4.32                # via tox
 pyasn1-modules==0.0.11    # via oauth2client, service-identity
 pyasn1==0.3.2             # via oauth2client, pyasn1-modules, rsa, service-identity
-pycodestyle==2.3.1        # via flake8
+pycodestyle==2.4.0        # via flake8
 pycparser==2.18           # via cffi
-pyflakes==1.5.0           # via flake8
+pyflakes==2.0.0           # via flake8
 pygments==2.2.0           # via readme-renderer, restview, sphinx
 pyopenssl==18.0.0
-pyroma==2.2
+pyroma==2.4
 pytz==2016.10             # via babel
 readme-renderer==16.0     # via restview
 repoze.sphinx.autointerface==0.8
 requests-toolbelt==0.7.1  # via twine
-requests==2.13.0          # via requests-toolbelt, sphinx, twine
-restview==2.7.0
+requests==2.13.0          # via requests-toolbelt, sphinx, twine, zest.releaser
+restview==2.9.1
 rsa==3.4.2                # via oauth2client
 secretstorage==2.3.1
 service-identity==17.0.0
-six==1.10.0               # via automat, bleach, cryptography, google-api-python-client, html5lib, oauth2client, pip-tools, pyopenssl, readme-renderer, sphinx, sphinx-intl, zest.releaser, zope.testrunner
+six==1.10.0               # via automat, bleach, cryptography, google-api-python-client, html5lib, oauth2client, pip-tools, pyopenssl, readme-renderer, sphinx, sphinx-intl, tox, zest.releaser, zope.testrunner
 snowballstemmer==1.2.1    # via sphinx
-sphinx-argparse==0.1.17
-sphinx-intl==0.9.9
+sphinx-argparse==0.2.3
+sphinx-intl==0.9.11
 sphinx==1.5.3
-tox==2.6.0
+toml==0.10.0              # via tox
+tox==3.5.2
 twine==1.8.1              # via zest.releaser
 twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 virtualenv==15.1.0        # via tox
-wheel==0.29.0
+wheel==0.32.2
 zc.buildout==2.12.2
-zest.releaser==6.9
+zest.releaser==6.15.2
 zope.exceptions==4.0.8    # via zope.testrunner
 zope.interface==4.1.1     # via repoze.sphinx.autointerface, twisted, zope.exceptions, zope.testrunner
-zope.testrunner==4.6.0
+zope.testrunner==4.9

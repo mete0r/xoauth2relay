@@ -30,4 +30,4 @@ twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
 zope.exceptions==4.0.8    # via zope.testrunner
 zope.interface==4.1.1     # via twisted, zope.exceptions, zope.testrunner
-zope.testrunner==4.6.0
+zope.testrunner==4.9
