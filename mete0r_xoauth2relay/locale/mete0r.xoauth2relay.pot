@@ -1,27 +1,58 @@
 # Translations template for mete0r.xoauth2relay.
-# Copyright (C) 2016-2017 mete0r@sarangbang.or.kr
-# This file is distributed under the same license as the mete0r.xoauth2relay project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# Copyright (C) 2018 mete0r@sarangbang.or.kr
+# This file is distributed under the same license as the mete0r.xoauth2relay
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: mete0r.xoauth2relay 0.0.0\n"
 "Report-Msgid-Bugs-To: mete0r@sarangbang.or.kr\n"
-"POT-Creation-Date: 2016-03-04 18:22+0900\n"
+"POT-Creation-Date: 2018-10-25 16:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
-#: mete0r_xoauth2relay/cli.py:42
+#: mete0r_xoauth2relay/cli.py:98 mete0r_xoauth2relay/cli.py:179
+#: mete0r_xoauth2relay/cli.py:243
 msgid "output version information and exit"
 msgstr ""
 
-#: mete0r_xoauth2relay/cli.py:45
+#: mete0r_xoauth2relay/cli.py:103 mete0r_xoauth2relay/cli.py:182
+#: mete0r_xoauth2relay/cli.py:246
 msgid "increase verbosity"
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:107
+msgid "Google API Project Client Secrets file"
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:112
+msgid "Overwrite existing client secrets."
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:117
+msgid "Delete imported client secrets file."
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:185
+msgid "GMail login email"
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:190
+msgid "Force authentication"
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:251
+msgid "Local binding address"
+msgstr ""
+
+#: mete0r_xoauth2relay/cli.py:257
+msgid "Local listening port"
 msgstr ""
 
