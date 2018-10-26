@@ -14,6 +14,7 @@ sphinx >= 1.5
 sphinx-click >= 1.4.0
 sphinx-intl >= 0.9.11
 tox >= 3.5.2
+twine >= 1.12.1
 wheel >= 0.32.2
 zc.buildout >= 2.12.2
 zest.releaser >= 6.15.2
