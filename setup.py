@@ -152,15 +152,17 @@ setup_info = {
     },
     'classifiers': [
         'Development Status :: 1 - Planning',
-        # 'Intended Audience :: Developers',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',  # noqa
-        # 'Operating System :: OS Independent',
-        # 'Programming Language :: Python',
-        # 'Programming Language :: Python :: 2.7',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
         # 'Programming Language :: Python :: 3.4',
-        # 'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: CPython',
     ],
     'keywords': [
+        'xoauth2',
+        'smtp',
     ],
     'zip_safe': False,
 }
