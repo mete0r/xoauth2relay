@@ -11,7 +11,9 @@ attrs==17.2.0             # via automat, service-identity
 automat==0.6.0            # via twisted
 babel==2.6.0
 bleach==3.0.2             # via readme-renderer
+certifi==2018.10.15       # via requests
 cffi==1.10.0              # via cryptography
+chardet==3.0.4            # via requests
 check-manifest==0.37
 click==6.7
 colorama==0.3.7           # via zest.releaser
@@ -28,7 +30,7 @@ future==0.17.0            # via readme-renderer
 google-api-python-client==1.6.2
 httplib2==0.10.3          # via google-api-python-client, oauth2client
 humanfriendly==4.17       # via coloredlogs
-idna==2.5                 # via cryptography
+idna==2.5                 # via cryptography, requests
 imagesize==0.7.1          # via sphinx
 incremental==17.5.0       # via twisted
 ipaddress==1.0.18         # via cryptography
@@ -55,7 +57,7 @@ pytz==2016.10             # via babel
 readme-renderer==23.0     # via restview, twine
 repoze.sphinx.autointerface==0.8
 requests-toolbelt==0.8.0  # via twine
-requests==2.13.0          # via requests-toolbelt, sphinx, twine, zest.releaser
+requests==2.20.0
 restview==2.9.1
 rsa==3.4.2                # via oauth2client
 secretstorage==2.3.1
@@ -71,6 +73,7 @@ tqdm==4.28.1              # via twine
 twine==1.12.1
 twisted==17.1.0
 uritemplate==3.0.0        # via google-api-python-client
+urllib3==1.24             # via requests
 virtualenv==15.1.0        # via tox
 webencodings==0.5.1       # via bleach
 wheel==0.32.2
