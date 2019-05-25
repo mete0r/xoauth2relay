@@ -34,7 +34,7 @@ idna==2.5                 # via cryptography, requests
 imagesize==0.7.1          # via sphinx
 incremental==17.5.0       # via twisted
 ipaddress==1.0.18         # via cryptography
-jinja2==2.9.5             # via sphinx
+jinja2==2.10.1            # via sphinx
 keyring==10.4.0
 markupsafe==0.23          # via jinja2
 mccabe==0.6.1             # via flake8
