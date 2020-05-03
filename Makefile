@@ -44,19 +44,22 @@ endif
 FIND_LINKS:=-f virtualenv_support
 
 update-requirements: $(REQUIREMENTS_FILES)
-	python setup.py pip_sync $(FIND_LINKS) $(PIP_NO_INDEX) -r requirements-dev.txt
+	pip-sync $(FIND_LINKS) $(PIP_NO_INDEX) requirements-dev.txt
 	. bin/activate && pip install -e . --no-deps -f virtualenv_support
 
 requirements.txt: $(REQUIREMENTS_IN)
-	python setup.py pip_compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ -c "$^"
+	pip-compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ $^
 
 requirements-test.txt: $(REQUIREMENTS_IN_TEST)
-	python setup.py pip_compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ -c "$^"
+	pip-compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ $^
 
 requirements-dev.txt: $(REQUIREMENTS_IN_DEV)
-	python setup.py pip_compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ -c "$^"
+	pip-compile $(FIND_LINKS) $(PIP_NO_INDEX) -o $@ $^
 
 .PHONY: update-wheelhouse
 update-wheelhouse: bootstrap-virtualenv.py
 bootstrap-virtualenv.py: requirements.txt bootstrap-virtualenv.in
 	python setup.py virtualenv_bootstrap_script -o $@ -r $<
+
+run-daemon:
+	. bin/activate && twistd -y xoauth2relay.tac

@@ -3,14 +3,13 @@ argcomplete >= 1.9.4
 babel >= 2.6.0
 check-manifest >= 0.37
 coloredlogs >= 10.0
-dbus-python >= 1.2.8
 flake8 >= 3.6.0
 pip-tools >= 3.1.0
 pyroma >= 2.4
 repoze.sphinx.autointerface
 requests >= 2.20.0
 restview >= 2.9.1
-secretstorage < 3
+secretstorage
 sphinx >= 1.5
 sphinx-click >= 1.4.0
 sphinx-intl >= 0.9.11
