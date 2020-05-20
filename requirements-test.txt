@@ -4,45 +4,9 @@
 #
 #    pip-compile --find-links=virtualenv_support --output-file=requirements-test.txt requirements-test.in requirements.in
 #
---find-links virtualenv_support
-
-attrs==19.3.0             # via automat, service-identity, twisted
-automat==20.2.0           # via twisted
-cachetools==4.1.0         # via google-auth
-certifi==2020.4.5.1       # via requests
-cffi==1.14.0              # via cryptography
-chardet==3.0.4            # via requests
-click==7.1.2              # via -r requirements.in
-constantly==15.1.0        # via twisted
-cryptography==2.9.2       # via pyopenssl, secretstorage, service-identity
-google-api-core==1.17.0   # via google-api-python-client
-google-api-python-client==1.8.2  # via -r requirements.in
-google-auth-httplib2==0.0.3  # via google-api-python-client
-google-auth==1.14.1       # via google-api-core, google-api-python-client, google-auth-httplib2
-googleapis-common-protos==1.51.0  # via google-api-core
-httplib2==0.17.3          # via google-api-python-client, google-auth-httplib2
-hyperlink==19.0.0         # via twisted
-idna==2.9                 # via hyperlink, requests
-incremental==17.5.0       # via twisted
-jeepney==0.4.3            # via keyring, secretstorage
-keyring==21.2.1           # via -r requirements.in
-protobuf==3.11.3          # via google-api-core, googleapis-common-protos
-pyasn1-modules==0.2.8     # via google-auth, service-identity
-pyasn1==0.4.8             # via pyasn1-modules, rsa, service-identity
-pycparser==2.20           # via cffi
-pyhamcrest==2.0.2         # via twisted
-pyopenssl==19.1.0         # via -r requirements.in
-pytz==2020.1              # via google-api-core
-requests==2.23.0          # via google-api-core
-rsa==4.0                  # via google-auth
-secretstorage==3.1.2      # via keyring
-service-identity==18.1.0  # via -r requirements.in
-six==1.14.0               # via automat, cryptography, google-api-core, google-api-python-client, google-auth, protobuf, pyopenssl, zope.testrunner
-twisted==20.3.0           # via -r requirements.in
-uritemplate==3.0.1        # via google-api-python-client
-urllib3==1.25.9           # via requests
+six==1.14.0               # via zope.testrunner
 zope.exceptions==4.3      # via zope.testrunner
-zope.interface==5.1.0     # via twisted, zope.exceptions, zope.testrunner
+zope.interface==5.1.0     # via zope.testrunner
 zope.testrunner==5.1      # via -r requirements-test.in
 
 # The following packages are considered to be unsafe in a requirements file:
