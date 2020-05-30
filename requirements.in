@@ -1,5 +1,6 @@
 click >= 3.0
 google-api-python-client
+httplib2 >= 0.18.0
 keyring >= 10.4.0
 pyopenssl >= 17.5.0
 service_identity
