@@ -4,100 +4,105 @@
 #
 #    pip-compile --find-links=virtualenv_support --output-file=requirements-dev.txt requirements-dev.in requirements-test.in requirements.in
 #
---find-links virtualenv_support
-
-alabaster==0.7.12         # via -r requirements-dev.in, sphinx
-appdirs==1.4.3            # via virtualenv
-argcomplete==1.11.1       # via -r requirements-dev.in
-attrs==19.3.0             # via automat, service-identity, twisted
-automat==20.2.0           # via twisted
-babel==2.8.0              # via -r requirements-dev.in, sphinx, sphinx-intl
-bleach==3.1.5             # via readme-renderer
-cachetools==4.1.0         # via google-auth
-certifi==2020.4.5.1       # via requests
-cffi==1.14.0              # via cryptography
-chardet==3.0.4            # via requests
-check-manifest==0.41      # via -r requirements-dev.in
-click==7.1.2              # via -r requirements.in, pip-tools, sphinx-intl
-colorama==0.4.3           # via zest.releaser
-coloredlogs==14.0         # via -r requirements-dev.in
-constantly==15.1.0        # via twisted
-cryptography==2.9.2       # via pyopenssl, secretstorage, service-identity
-distlib==0.3.0            # via virtualenv
-docutils==0.16            # via pyroma, readme-renderer, restview, sphinx
-entrypoints==0.3          # via flake8
-filelock==3.0.12          # via tox, virtualenv
-flake8==3.7.9             # via -r requirements-dev.in
-google-api-core==1.17.0   # via google-api-python-client
-google-api-python-client==1.8.2  # via -r requirements.in
-google-auth-httplib2==0.0.3  # via google-api-python-client
-google-auth==1.14.1       # via google-api-core, google-api-python-client, google-auth-httplib2
-googleapis-common-protos==1.51.0  # via google-api-core
-httplib2==0.18.1          # via -r requirements.in, google-api-python-client, google-auth-httplib2
-humanfriendly==8.2        # via coloredlogs
-hyperlink==19.0.0         # via twisted
-idna==2.9                 # via hyperlink, requests
-imagesize==1.2.0          # via sphinx
-incremental==17.5.0       # via twisted
-jeepney==0.4.3            # via keyring, secretstorage
-jinja2==2.11.2            # via sphinx
-keyring==21.2.1           # via -r requirements.in, twine
-markupsafe==1.1.1         # via jinja2
-mccabe==0.6.1             # via flake8
-packaging==20.3           # via bleach, sphinx, tox
-pbr==5.4.5                # via sphinx-click
-pep517==0.8.2             # via check-manifest
-pip-tools==5.1.1          # via -r requirements-dev.in
-pkginfo==1.5.0.1          # via twine
-pluggy==0.13.1            # via tox
-protobuf==3.11.3          # via google-api-core, googleapis-common-protos
-py==1.8.1                 # via tox
-pyasn1-modules==0.2.8     # via google-auth, service-identity
-pyasn1==0.4.8             # via pyasn1-modules, rsa, service-identity
-pycodestyle==2.5.0        # via flake8
-pycparser==2.20           # via cffi
-pyflakes==2.1.1           # via flake8
-pygments==2.6.1           # via pyroma, readme-renderer, restview, sphinx
-pyhamcrest==2.0.2         # via twisted
-pyopenssl==19.1.0         # via -r requirements.in
-pyparsing==2.4.7          # via packaging
-pyroma==2.6               # via -r requirements-dev.in
-pytz==2020.1              # via babel, google-api-core
-readme-renderer==26.0     # via restview, twine
-repoze.sphinx.autointerface==0.8  # via -r requirements-dev.in
-requests-toolbelt==0.9.1  # via twine
-requests==2.23.0          # via -r requirements-dev.in, google-api-core, requests-toolbelt, sphinx, twine, zest.releaser
-restview==2.9.2           # via -r requirements-dev.in
-rsa==4.0                  # via google-auth
-secretstorage==3.1.2      # via -r requirements-dev.in, keyring
-service-identity==18.1.0  # via -r requirements.in
-six==1.14.0               # via automat, bleach, cryptography, google-api-core, google-api-python-client, google-auth, packaging, pip-tools, protobuf, pyopenssl, readme-renderer, tox, virtualenv, zest.releaser, zope.testrunner
-snowballstemmer==2.0.0    # via sphinx
-sphinx-click==2.3.2       # via -r requirements-dev.in
-sphinx-intl==2.0.1        # via -r requirements-dev.in
-sphinx==3.0.3             # via -r requirements-dev.in, repoze.sphinx.autointerface, sphinx-click, sphinx-intl
-sphinxcontrib-applehelp==1.0.2  # via sphinx
-sphinxcontrib-devhelp==1.0.2  # via sphinx
-sphinxcontrib-htmlhelp==1.0.3  # via sphinx
-sphinxcontrib-jsmath==1.0.1  # via sphinx
-sphinxcontrib-qthelp==1.0.3  # via sphinx
-sphinxcontrib-serializinghtml==1.1.4  # via sphinx
-toml==0.10.0              # via check-manifest, pep517, tox
-tox==3.15.0               # via -r requirements-dev.in
-tqdm==4.46.0              # via twine
-twine==3.1.1              # via -r requirements-dev.in, zest.releaser
-twisted==20.3.0           # via -r requirements.in
-uritemplate==3.0.1        # via google-api-python-client
-urllib3==1.25.9           # via requests
-virtualenv==20.0.18       # via tox
-webencodings==0.5.1       # via bleach
-wheel==0.34.2             # via -r requirements-dev.in
-zc.buildout==2.13.3       # via -r requirements-dev.in
-zest.releaser==6.20.1     # via -r requirements-dev.in
-zope.exceptions==4.3      # via zope.testrunner
-zope.interface==5.1.0     # via repoze.sphinx.autointerface, twisted, zope.exceptions, zope.testrunner
-zope.testrunner==5.1      # via -r requirements-test.in
+attrs==22.1.0
+    # via
+    #   automat
+    #   service-identity
+    #   twisted
+automat==22.10.0
+    # via twisted
+cachetools==5.2.0
+    # via google-auth
+certifi==2022.12.7
+    # via requests
+cffi==1.14.0
+    # via cryptography
+chardet==3.0.4
+    # via requests
+click==7.1.2
+    # via -r requirements.in
+constantly==15.1.0
+    # via twisted
+cryptography==38.0.4
+    # via
+    #   pyopenssl
+    #   secretstorage
+    #   service-identity
+google-api-core==2.11.0
+    # via google-api-python-client
+google-api-python-client==2.68.0
+    # via -r requirements.in
+google-auth==2.15.0
+    # via
+    #   google-api-core
+    #   google-api-python-client
+    #   google-auth-httplib2
+google-auth-httplib2==0.1.0
+    # via google-api-python-client
+googleapis-common-protos==1.57.0
+    # via google-api-core
+httplib2==0.21.0
+    # via
+    #   -r requirements.in
+    #   google-api-python-client
+    #   google-auth-httplib2
+hyperlink==21.0.0
+    # via twisted
+idna==2.9
+    # via
+    #   hyperlink
+    #   requests
+incremental==22.10.0
+    # via twisted
+jeepney==0.4.3
+    # via
+    #   keyring
+    #   secretstorage
+keyring==21.2.1
+    # via -r requirements.in
+protobuf==4.21.11
+    # via
+    #   google-api-core
+    #   googleapis-common-protos
+pyasn1==0.4.8
+    # via
+    #   pyasn1-modules
+    #   rsa
+    #   service-identity
+pyasn1-modules==0.2.8
+    # via
+    #   google-auth
+    #   service-identity
+pycparser==2.20
+    # via cffi
+pyopenssl==22.1.0
+    # via -r requirements.in
+pyparsing==2.4.7
+    # via httplib2
+requests==2.23.0
+    # via google-api-core
+rsa==4.9
+    # via google-auth
+secretstorage==3.1.2
+    # via keyring
+service-identity==21.1.0
+    # via -r requirements.in
+six==1.14.0
+    # via
+    #   automat
+    #   google-auth
+    #   google-auth-httplib2
+    #   service-identity
+twisted==22.10.0
+    # via -r requirements.in
+typing-extensions==4.4.0
+    # via twisted
+uritemplate==4.1.1
+    # via google-api-python-client
+urllib3==1.25.9
+    # via requests
+zope-interface==5.1.0
+    # via twisted
 
 # The following packages are considered to be unsafe in a requirements file:
-# pip
 # setuptools
